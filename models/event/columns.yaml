@@ -1,0 +1,28 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+
+    name:
+        label: Event Title
+        type: text
+        searchable: true
+
+    date:
+        label: Event Date
+
+    start:
+        label: Start Time
+
+    end:
+        label: End Time
+
+    location:
+        label: Location
+
+    is_published:
+        label: Is Published?

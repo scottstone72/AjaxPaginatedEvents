@@ -1,0 +1,59 @@
+{% set events = __SELF__.events %}
+<div>This is some text</div>
+{% if events %}
+
+{% for event in events %}
+
+<time class="icon">
+    <strong>{{ event.date|date('M') }}</strong>
+    <span>{{ event.date|date('d') }}</span>
+</time>
+
+<li title="{% if event.name %}{{ event.name }}{% else %}{{ event.description|striptags|slice(0,20) }}...{% endif %}">
+
+    {% if event.link %}
+        <a href="/{{ event.link }}">
+            <h4 class="uppercase text-primary h4-mod">{{ event.name }}</h4>
+        </a>
+    {% endif %}
+
+
+    {% if not event.link %}
+    <a data-toggle="modal" href="#content-confirmation-{{ index }}" class="">
+        <h4 class="uppercase text-primary h4-mod">{{ event.name }}</h4>
+    </a>
+    {% endif %}
+    <span>
+        {{ str_words(event.description, 23) }}
+    </span>
+</li>
+
+    <div class="control-popup modal fade" id="content-confirmation-{{ index }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">{{ event.name }}</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled">
+                        <li><strong>Date:</strong> {{ event.date|date('M d, Y') }}</li>
+                        <li><strong>Starts:</strong> {{ event.start }}</li>
+                        <li><strong>Ends:</strong> {{ event.end }}</li>
+                        <li><strong>Location:</strong> {{ event.location }}</li>
+                    </ul>
+                    <img src="{{ event.image.thumb(80,auto) }}" alt="" class="modal-image">
+                    <hr>
+                    <div><p>{{ event.description }}</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+{% endfor %}
+{% endif %}
+
+

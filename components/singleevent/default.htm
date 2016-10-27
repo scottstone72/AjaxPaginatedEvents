@@ -1,0 +1,18 @@
+
+<li title="{% if event.name %}{{ event.name }}{% else %}{{ event.description|striptags|slice(0,20) }}...{% endif %}">
+
+    {% if event.link %}
+    <a href="/{{ event.link }}">
+    {% endif %}
+
+        <h4 class="uppercase text-primary h4-mod">{{ event.name }}</h4>
+
+    {% if event.link %}
+    </a>
+    {% endif %}
+
+    <span>
+        Start Time: {{ event.start }}
+        {{ str_words(event.description, 20) }}
+    </span>
+</li>

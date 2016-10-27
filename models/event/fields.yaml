@@ -1,0 +1,77 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+
+    name:
+        label: Event Title
+        placeholder: Please enter a title for this event.
+        span: left
+
+    slug:
+        label: Slug
+        span: right
+        preset:
+            field: name
+            type: slug
+
+    description:
+        label: Event Description
+        placeholder: Add description of the event. (optional)
+        span: right
+        type: textarea
+
+    date:
+        label: Event Date
+        comment: Enter the date of the event
+        span: left
+        type: datepicker
+        mode: date
+
+    start:
+        label: Start Time
+        comment: Enter when this event starts (optional - leave blank for all day event.)
+        span: left
+        type: datepicker
+        mode: time
+
+    link:
+        label: Add Link
+        comment: Add a link to a Page
+        span: right
+
+    end:
+        label: End Time
+        comment: Enter the length of the event (optional)
+        span: left
+        type: datepicker
+        mode: time
+
+    location:
+        label: Event Location
+        placeholder: Enter a location for the event (optional)
+        span: left
+
+    image:
+        label: Event Image
+        type: fileupload
+        mode: image
+        span: right
+        imageHeight: 160
+        imageWidth: 160
+
+
+    is_published:
+        label: Is Published?
+        commentAbove: Select checkbox to publish this event
+        span: left
+        type: checkbox
+        default: true
+
+
+
