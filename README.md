@@ -1,0 +1,1 @@
+# AjaxPaginatedEvents - October CMS plugin
